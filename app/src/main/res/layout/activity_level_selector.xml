@@ -1,0 +1,81 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context="com.awesome.scott.stop.LevelSelector"
+    android:background="#ffbdbdbd"
+    android:id="@+id/level_selector">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select a Level"
+        android:textSize="30sp"
+        android:textColor="#DE1E1E"
+        android:layout_marginBottom="30dp"
+        android:typeface="monospace"
+        android:textStyle="bold"/>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:text="Single Stop x1"
+        android:textSize="20sp"
+        android:padding="20dp"
+        android:includeFontPadding="false"
+        android:textAllCaps="false"
+        android:enabled="true"
+        android:id="@+id/singleStopx1"
+        android:onClick="level100Pressed"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:text="Single Stop x2"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:padding="20dp"
+        android:enabled="true"
+        android:id="@+id/singleStopx2"
+        android:onClick="level200Pressed"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:text="Double Stop x1"
+        android:textSize="20sp"
+        android:padding="20dp"
+        android:textAllCaps="false"
+        android:enabled="true"
+        android:id="@+id/doubleStopx1"
+        android:onClick="doubleStopButtonPressed"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Double Stop x2"
+        android:textSize="20sp"
+        android:padding="20dp"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:textAllCaps="false"
+        android:enabled="true"
+        android:id="@+id/doubleStopx2"
+        android:onClick="doubleStopx2ButtonPressed"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:text="Custom"
+        android:textSize="20sp"
+        android:padding="20dp"
+
+        android:textAllCaps="false"
+        android:onClick="customButtonClicked"/>
+
+
+</LinearLayout>

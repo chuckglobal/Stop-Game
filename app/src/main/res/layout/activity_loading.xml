@@ -1,0 +1,19 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context="com.awesome.scott.stop.LoadingActivity"
+    android:background="#f5f5f5">
+
+    <com.romainpiel.shimmer.ShimmerTextView
+        android:gravity="center"
+        android:id="@+id/shimmer_tv"
+        android:text="sasQUACH Productions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#010101"
+        android:textSize="30sp"/>
+
+</LinearLayout>

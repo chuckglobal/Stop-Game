@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Stop</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_level_selector">LevelSelector</string>
+    <string name="title_activity_start_menu">StartMenu</string>
+    <string name="title_activity_double_counter">DoubleCounterActivity</string>
+    <string name="title_activity_leaderboard">Leaderboard</string>
+    <string name="title_activity_custom_stop">CustomStop</string>
+    <string name="title_activity_custom_stop_level">CustomStopLevel</string>
+    <string name="title_activity_custom_level">CustomLevel</string>
+
+
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="stop">Stop</string>
+    <string name="Menu_Title">Can you stop it?</string>
+    <string name="leaderboard">Leaderboard</string>
+    <string name="title_activity_loading">LoadingActivity</string>
+</resources>

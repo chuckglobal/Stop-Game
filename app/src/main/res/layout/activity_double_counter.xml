@@ -1,0 +1,126 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context="com.awesome.scott.stop.DoubleCounterActivity"
+    android:background="#ffbdbdbd">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        android:gravity="right">
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/ic_action_action_home"
+            android:onClick="returnToHomeScreenButtonClicked"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop both at 100"
+        android:id="@+id/headerDisplay"/>
+
+    //counter display layout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="120dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="70sp"
+            android:layout_marginRight="75dp"
+            android:id="@+id/counterView1"
+            android:textColor="#ff000000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="70sp"
+            android:id="@+id/counterView2"
+            android:textColor="#ff000000" />
+    </LinearLayout>
+
+    //stop button layout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        //stop button left (1)
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginRight="10dp"
+            android:text="stop"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
+            android:enabled="false"
+            android:id="@+id/stopButton1"
+            android:onClick="T1StopPressed"
+            android:background="#DE1E1E"
+            android:textColor="#ff000000" />
+        //stop button right (1)
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="stop"
+            android:paddingRight="50dp"
+            android:paddingLeft="50dp"
+            android:enabled="false"
+            android:id="@+id/stopButton2"
+            android:onClick="T2StopPressed"
+            android:background="#DE1E1E"
+            android:textColor="#ff000000" />
+
+    </LinearLayout>
+
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start"
+            android:onClick="startButtonPressed"
+            android:id="@+id/startButton"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x1"
+            android:textStyle="bold"
+            android:id="@+id/speedDisplay1"/>
+
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Attempts"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#ff000000" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="40sp"
+        android:id="@+id/attemptDisplay"
+        android:textColor="#558B2F" />
+
+</LinearLayout>

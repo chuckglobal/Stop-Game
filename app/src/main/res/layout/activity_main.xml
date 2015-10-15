@@ -1,0 +1,102 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:id="@+id/activity_main_view"
+
+    tools:context=".MainActivity"
+    android:background="#ffbdbdbd">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right">
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/ic_action_action_home"
+            android:onClick="returnToHomeScreenButtonClicked"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"
+            />
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="stop at 100"
+        android:textSize="20sp"
+        android:id="@+id/headerDisplay"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="90sp"
+        android:layout_marginTop="50dp"
+        android:id="@+id/counterView"
+        android:textColor="#ff000000"
+        android:onClick="debugClicked"/>
+
+    </LinearLayout>
+
+    //stop button
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="stop"
+        android:layout_marginTop="60dp"
+
+        android:paddingLeft="100dp"
+        android:paddingRight="100dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:onClick="stopButtonPressed"
+        android:enabled="false"
+        android:id="@+id/StopButton"
+
+        android:background="#DE1E1E"
+        android:textColor="#ff000000" />
+
+    //start Button
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        android:id="@+id/startButton"
+        android:onClick="startPressed"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="x1"
+        android:textStyle="bold"
+        android:id="@+id/speedDisplay"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Attempts:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#ff000000" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="40sp"
+        android:id="@+id/attemptDisplay"
+        android:textColor="#558B2F" />
+
+
+
+</LinearLayout>

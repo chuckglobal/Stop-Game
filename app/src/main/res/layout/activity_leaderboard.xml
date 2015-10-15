@@ -1,0 +1,132 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.awesome.scott.stop.Leaderboard"
+    android:background="#0097a7">
+
+
+
+    <TextView android:text="Leaderboard"
+        android:gravity="center_horizontal"
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+
+        android:autoText="false"
+        android:background="#ffffffff"
+        android:textColor="#ff000000" />
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TableRow>
+            <TextView
+                android:text="Level"
+                android:textSize="30sp"
+                android:textStyle="bold"
+
+                android:textColor="#ff8bc34a" />
+            <TextView
+                android:layout_marginLeft="40dp"
+                android:text="Attempts"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#ff8bc34a" />
+        </TableRow>
+
+        <!--1xSingleStop-->
+        <TableRow>
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:text="Single Stop x1"
+                android:textSize="20sp"
+                android:textColor="#ff000000" />
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="100dp"
+                android:text="0"
+                android:textSize="20dp"
+                android:id="@+id/x1ScoreDisplay"
+                android:textColor="#ff000000"/>
+
+        </TableRow>
+
+        <!--2xSingleStop-->
+        <TableRow>
+            <TextView
+                android:layout_marginTop="20dp"
+                android:text="Single Stop x2"
+                android:textSize="20sp"
+                android:textColor="#ff000000"/>
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="100dp"
+                android:text="0"
+                android:textSize="20dp"
+                android:id="@+id/x2ScoreDisplay"
+                android:textColor="#ff000000"/>
+
+        </TableRow>
+
+        <!--doubleStop-->
+        <TableRow>
+            <TextView
+                android:layout_marginTop="20dp"
+                android:text="Double Stop x1"
+                android:textSize="20sp"
+                android:textColor="#ff000000"/>
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="100dp"
+                android:text="0"
+                android:textSize="20dp"
+                android:id="@+id/doubleScoreDisplay"
+                android:textColor="#ff000000"/>
+
+
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_marginTop="20dp"
+                android:text="Double Stop x2"
+                android:textSize="20sp"
+                android:textColor="#ff000000"
+                />
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="100dp"
+                android:text="0"
+                android:textSize="20dp"
+                android:textColor="#ff000000"
+                android:id="@+id/doubleScoreDisplayx2"
+                />
+
+        </TableRow>
+
+
+
+    </TableLayout>
+
+
+    <!--delete button-->
+    <Button
+        android:layout_marginTop="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset All Atempts"
+        android:onClick="resetButtonPressed"
+        />
+
+</LinearLayout>
