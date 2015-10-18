@@ -8,8 +8,8 @@ android {
         applicationId "com.awesome.scott.stop"
         minSdkVersion 15
         targetSdkVersion 22
-        versionCode 9
-        versionName "2.2"
+        versionCode 10
+        versionName "2.2.1"
     }
     buildTypes {
         release {
