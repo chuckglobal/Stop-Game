@@ -54,13 +54,15 @@
         android:enabled="false"
         android:id="@+id/StopButton"
 
-        android:background="#DE1E1E"
+        android:background="@drawable/button_round_red"
         android:textColor="#ff000000" />
     <Button
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
         android:text="Start"
+        android:background="@drawable/button_round_green"
         android:onClick="startPressed"
         android:id="@+id/startButton"/>
 

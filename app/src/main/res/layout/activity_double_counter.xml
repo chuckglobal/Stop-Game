@@ -73,7 +73,7 @@
             android:enabled="false"
             android:id="@+id/stopButton1"
             android:onClick="T1StopPressed"
-            android:background="#DE1E1E"
+            android:background="@drawable/button_round_red"
             android:textColor="#ff000000" />
         //stop button right (1)
         <Button
@@ -85,7 +85,7 @@
             android:enabled="false"
             android:id="@+id/stopButton2"
             android:onClick="T2StopPressed"
-            android:background="#DE1E1E"
+            android:background="@drawable/button_round_red"
             android:textColor="#ff000000" />
 
     </LinearLayout>
@@ -93,11 +93,13 @@
 
 
         <Button
+            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Start"
             android:onClick="startButtonPressed"
             android:id="@+id/startButton"
+            android:background="@drawable/button_round_green"
             />
         <TextView
             android:layout_width="wrap_content"
