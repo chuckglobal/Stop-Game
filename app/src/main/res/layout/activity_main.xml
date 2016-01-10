@@ -11,7 +11,7 @@
     android:id="@+id/activity_main_view"
 
     tools:context=".MainActivity"
-    android:background="#ffbdbdbd">
+    android:background="#B0BEC5">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -65,7 +65,7 @@
         android:enabled="false"
         android:id="@+id/StopButton"
 
-        android:background="@drawable/button_round_red"
+        android:background="@drawable/selector_stop_button"
         android:textColor="#ff000000" />
 
     //start Button

@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     tools:context="com.awesome.scott.stop.LevelSelector"
-    android:background="#ffbdbdbd"
+    android:background="#B0BEC5"
     android:id="@+id/level_selector">
 
     <TextView

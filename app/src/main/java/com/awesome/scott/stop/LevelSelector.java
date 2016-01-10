@@ -1,6 +1,9 @@
 package com.awesome.scott.stop;
 
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,6 +16,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
+
+import java.util.List;
 
 
 public class LevelSelector extends Activity {
@@ -39,6 +45,8 @@ public class LevelSelector extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_selector);
 
+
+
 //        rootContainer = (ViewGroup)findViewById(R.id.rootContainer);
 //
 //        enterScene = Scene.getSceneForLayout(rootContainer, R.layout.acitivity_level_selector_enter_animation, this);
@@ -61,7 +69,41 @@ public class LevelSelector extends Activity {
         progressionNumber = sharedPref.getInt("progressionNumber",0);
 //        determineProgression();
 
+
+
     }
+
+
+
+
+//    @Override
+//    protected void onPause() {
+//
+//
+//        if (this.isFinishing()){ //basically BACK was pressed from this activity
+//
+//
+////                startMenuClass.stopBackgroundMusic();
+//
+//        }
+//        Context context = getApplicationContext();
+//        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+//        List<ActivityManager.RunningTaskInfo> taskInfo = am.getRunningTasks(1);
+//        if (!taskInfo.isEmpty()) {
+//            ComponentName topActivity = taskInfo.get(0).topActivity;
+//            if (!topActivity.getPackageName().equals(context.getPackageName())) {
+//
+//                    backgroundMusicPlayer.stop();
+//
+//            }
+//            else {
+//
+//                backgroundMusicPlayer.stop();
+//
+//            }
+//        }
+//        super.onPause();
+//    }
 
     private void determineProgression(){
         if (progressionNumber == 0){
@@ -141,6 +183,8 @@ public class LevelSelector extends Activity {
         Intent openCustom = new Intent(LevelSelector.this,CustomStopLevel.class);
         startActivity(openCustom);
     }
+
+
 
 
 }

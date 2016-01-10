@@ -1,7 +1,10 @@
 package com.awesome.scott.stop;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.AlertDialog;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,10 +12,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.List;
 
 
-
-public class Leaderboard extends Activity {
+public class Leaderboard extends StartMenu {
 
     SharedPreferences loadAttempts;
     SharedPreferences.Editor editor;
@@ -29,6 +34,7 @@ public class Leaderboard extends Activity {
     TextView x2Score;
     TextView doubleScore;
     TextView doubleScorex2;
+
 
 
 
@@ -57,7 +63,6 @@ public class Leaderboard extends Activity {
         x2Score.setText(String.valueOf(x2SingleStopAttempts));
         doubleScore.setText(String.valueOf(doubleStopAttempts));
         doubleScorex2.setText(String.valueOf(doubleStopAttemptsx2));
-
 
 
     }
@@ -130,4 +135,30 @@ public class Leaderboard extends Activity {
         alertDialog.show();
 
     }
+
+//    @Override
+//    protected void onPause() {
+//        if (this.isFinishing()){ //basically BACK was pressed from this activity
+//
+//
+////                startMenuClass.stopBackgroundMusic();
+//
+//        }
+//        Context context = getApplicationContext();
+//        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+//        List<ActivityManager.RunningTaskInfo> taskInfo = am.getRunningTasks(1);
+//        if (!taskInfo.isEmpty()) {
+//            ComponentName topActivity = taskInfo.get(0).topActivity;
+//            if (!topActivity.getPackageName().equals(context.getPackageName())) {
+//
+//                backgroundMusicPlayer.stop();
+//
+//            }
+//            else {
+//
+//
+//            }
+//        }
+//        super.onPause();
+//    }
 }

@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:gravity="center"
     tools:context="com.awesome.scott.stop.DoubleCounterActivity"
-    android:background="#ffbdbdbd">
+    android:background="#B0BEC5">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
             android:enabled="false"
             android:id="@+id/stopButton1"
             android:onClick="T1StopPressed"
-            android:background="@drawable/button_round_red"
+            android:background="@drawable/selector_stop_button"
             android:textColor="#ff000000" />
         //stop button right (1)
         <Button
@@ -85,7 +85,7 @@
             android:enabled="false"
             android:id="@+id/stopButton2"
             android:onClick="T2StopPressed"
-            android:background="@drawable/button_round_red"
+            android:background="@drawable/selector_stop_button"
             android:textColor="#ff000000" />
 
     </LinearLayout>
