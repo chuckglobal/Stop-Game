@@ -11,7 +11,7 @@
     android:id="@+id/activity_main_view"
 
     tools:context=".MainActivity"
-    android:background="#B0BEC5">
+    android:background="@color/appBackgroundColor">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -7,7 +7,7 @@
 
     android:gravity="center"
     tools:context="com.awesome.scott.stop.StartMenu"
-    android:background="#ffbdbdbd"
+    android:background="@color/appBackgroundColor"
     android:id="@+id/start_menu">
 
     <LinearLayout
@@ -16,7 +16,7 @@
         android:orientation="vertical"
         android:gravity="center"
         android:layout_weight="4"
-        android:background="#B0BEC5">
+        android:background="@color/appBackgroundColor">
 
     <TextView
         android:layout_width="wrap_content"
@@ -24,7 +24,7 @@
         android:text="@string/Menu_Title"
 
         android:textSize="30sp"
-        android:textColor="#DE1E1E"
+        android:textColor="#E53935"
         android:layout_marginBottom="50dp"/>
 
     <Button
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:background="#00BCD4">
+        android:background="#4CAF50">
 
         <TextView
             android:layout_width="200dp"

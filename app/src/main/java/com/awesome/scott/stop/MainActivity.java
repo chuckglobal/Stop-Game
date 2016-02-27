@@ -113,7 +113,10 @@ public class MainActivity extends Activity {
     @Override
     protected void onPause() {
         if (this.isFinishing()){ //basically BACK was pressed from this activity
-            player.stop();
+            if(player != null && player.isPlaying()){
+                player.stop();
+
+            }
 //            Toast.makeText(xYourClassNamex.this, "YOU PRESSED BACK FROM YOUR 'HOME/MAIN' ACTIVITY", Toast.LENGTH_SHORT).show();
         }
         Context context = getApplicationContext();
@@ -122,7 +125,10 @@ public class MainActivity extends Activity {
         if (!taskInfo.isEmpty()) {
             ComponentName topActivity = taskInfo.get(0).topActivity;
             if (!topActivity.getPackageName().equals(context.getPackageName())) {
-                player.stop();
+                if(player != null && player.isPlaying()){
+                    player.stop();
+
+                }
 //                Toast.makeText(xYourClassNamex.this, "YOU LEFT YOUR APP", Toast.LENGTH_SHORT).show();
             }
             else {

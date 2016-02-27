@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     tools:context="com.awesome.scott.stop.LevelSelector"
-    android:background="#B0BEC5"
+    android:background="@color/appBackgroundColor"
     android:id="@+id/level_selector">
 
     <TextView
@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:text="Select a Level"
         android:textSize="30sp"
-        android:textColor="#DE1E1E"
+        android:textColor="#E53935"
         android:layout_marginBottom="30dp"
         android:typeface="monospace"
         android:textStyle="bold"/>
