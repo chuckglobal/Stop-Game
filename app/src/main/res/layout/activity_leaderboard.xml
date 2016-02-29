@@ -121,6 +121,12 @@
 
 
     <!--delete button-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thanks to the Sweet Alert Dialog library"
+        android:id="@+id/textView" />
+
     <Button
         android:layout_marginTop="200dp"
         android:layout_width="wrap_content"

@@ -17,6 +17,8 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 
 public class DoubleCounterActivity extends Activity {
 
@@ -69,51 +71,47 @@ public class DoubleCounterActivity extends Activity {
         sharedPref = getSharedPreferences("NumberOfAttemptSaveFile", MODE_PRIVATE);
         editor = sharedPref.edit();
 
-        SharedPreferences loadDoubleAttempts = getSharedPreferences("NumberOfAttemptSaveFile",MODE_PRIVATE);
+        SharedPreferences loadDoubleAttempts = getSharedPreferences("NumberOfAttemptSaveFile", MODE_PRIVATE);
 
         if (selectedDoubleLevel == 1) {
             numberOfAttemptsDouble = loadDoubleAttempts.getInt("doubleStopAttempts", 0);
-        }else{
-            numberOfAttemptsDouble = loadDoubleAttempts.getInt("doubleStopAttemptsx2",0);
+        } else {
+            numberOfAttemptsDouble = loadDoubleAttempts.getInt("doubleStopAttemptsx2", 0);
         }
 
-        attemptsDisplay = (TextView)findViewById(R.id.attemptDisplay);
-        speedDisplay = (TextView)findViewById(R.id.speedDisplay1);
+        attemptsDisplay = (TextView) findViewById(R.id.attemptDisplay);
+        speedDisplay = (TextView) findViewById(R.id.speedDisplay1);
 
         attemptsDisplay.setText(String.valueOf(numberOfAttemptsDouble));
         randomGenerator = new Random();
 
-        counterDisplay1 = (TextView)findViewById(R.id.counterView1);
-        counterDisplay2 = (TextView)findViewById(R.id.counterView2);
+        counterDisplay1 = (TextView) findViewById(R.id.counterView1);
+        counterDisplay2 = (TextView) findViewById(R.id.counterView2);
 
         stopButton1 = (Button) findViewById(R.id.stopButton1);
         stopButton2 = (Button) findViewById(R.id.stopButton2);
-        startButton = (Button)findViewById(R.id.startButton);
+        startButton = (Button) findViewById(R.id.startButton);
 
-        if(selectedDoubleLevel ==1){
+        if (selectedDoubleLevel == 1) {
             speedDisplay.setText("x1");
-        }else{
+        } else {
             speedDisplay.setText("x2");
         }
 
 
-
-
     }
 
-    private void retrieveSelectedlevel(Intent intent){
+    private void retrieveSelectedlevel(Intent intent) {
         Bundle bundle = intent.getExtras();
-        if(!bundle.isEmpty()){
+        if (!bundle.isEmpty()) {
             selectedDoubleLevel = bundle.getInt("doubleLevel");
         }
-        if (selectedDoubleLevel == 1){
+        if (selectedDoubleLevel == 1) {
             speedValue = bundle.getInt("doubleSpeedx1");
-        }else{
+        } else {
             speedValue = bundle.getInt("doublSpeedx2");
         }
     }
-
-
 
 
     public void startButtonPressed(View view) {
@@ -133,10 +131,10 @@ public class DoubleCounterActivity extends Activity {
         numberOfAttemptsDouble++;
         attemptsDisplay.setText(String.valueOf(numberOfAttemptsDouble));
 
-        if (selectedDoubleLevel == 1){
+        if (selectedDoubleLevel == 1) {
             editor.putInt("doubleStopAttempts", numberOfAttemptsDouble);
             editor.apply();
-        }else{
+        } else {
             editor.putInt("doubleStopAttemptsx2", numberOfAttemptsDouble);
             editor.apply();
         }
@@ -150,103 +148,101 @@ public class DoubleCounterActivity extends Activity {
         T2stop = false;
 
 
-
         switch (n) {
 
 
+            //start T1
+            case 0:
 
-        //start T1
-        case 0:
-
-        T1.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                runOnUiThread(new Runnable() {
+                T1.scheduleAtFixedRate(new TimerTask() {
                     @Override
                     public void run() {
-                        if (counterValue1 < maxValue) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (counterValue1 < maxValue) {
 
-                            counterValue1++;
-                            counterDisplay1.setText(String.valueOf(counterValue1));
-                            if(counterValue1 == delayValue){
-                                stopButton2.setEnabled(true);
-                                stopButton1.setEnabled(true);
-                                T2.scheduleAtFixedRate(new TimerTask() {
-                                    @Override
-                                    public void run() {
-                                        runOnUiThread(new Runnable() {
+                                    counterValue1++;
+                                    counterDisplay1.setText(String.valueOf(counterValue1));
+                                    if (counterValue1 == delayValue) {
+                                        stopButton2.setEnabled(true);
+                                        stopButton1.setEnabled(true);
+                                        T2.scheduleAtFixedRate(new TimerTask() {
                                             @Override
                                             public void run() {
-                                                if (counterValue2 < maxValue) {
+                                                runOnUiThread(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        if (counterValue2 < maxValue) {
 
-                                                    counterValue2++;
-                                                    counterDisplay2.setText(String.valueOf(counterValue2));
+                                                            counterValue2++;
+                                                            counterDisplay2.setText(String.valueOf(counterValue2));
 
-                                                }else{
-                                                    noAttempt();
-                                                }
+                                                        } else {
+                                                            noAttempt();
+                                                        }
+                                                    }
+                                                });
                                             }
-                                        });
+                                        }, 0, speedValue);
                                     }
-                                }, 0, speedValue);
+
+                                }
+
                             }
-
-                        }
-
+                        });
                     }
-                });
-            }
-        }, 0, speedValue);
-        break;
+                }, 0, speedValue);
+                break;
 
-        //start T2
-        case 1:
+            //start T2
+            case 1:
 
-            T2.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                runOnUiThread(new Runnable() {
+                T2.scheduleAtFixedRate(new TimerTask() {
                     @Override
                     public void run() {
-                        if (counterValue2 < maxValue) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (counterValue2 < maxValue) {
 
-                            counterValue2++;
-                            counterDisplay2.setText(String.valueOf(counterValue2));
-                            if (counterValue2 == delayValue) {
-                                stopButton1.setEnabled(true);
-                                stopButton2.setEnabled(true);
-                                T1.scheduleAtFixedRate(new TimerTask() {
-                                    @Override
-                                    public void run() {
-                                        runOnUiThread(new Runnable() {
+                                    counterValue2++;
+                                    counterDisplay2.setText(String.valueOf(counterValue2));
+                                    if (counterValue2 == delayValue) {
+                                        stopButton1.setEnabled(true);
+                                        stopButton2.setEnabled(true);
+                                        T1.scheduleAtFixedRate(new TimerTask() {
                                             @Override
                                             public void run() {
-                                                if (counterValue1 < maxValue) {
+                                                runOnUiThread(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        if (counterValue1 < maxValue) {
 
-                                                    counterValue1++;
-                                                    counterDisplay1.setText(String.valueOf(counterValue1));
+                                                            counterValue1++;
+                                                            counterDisplay1.setText(String.valueOf(counterValue1));
 
-                                                } else {
-                                                    noAttempt();
-                                                }
+                                                        } else {
+                                                            noAttempt();
+                                                        }
 
 
+                                                    }
+                                                });
                                             }
-                                        });
+                                        }, 0, speedValue);
                                     }
-                                }, 0, speedValue);
+
+                                }
+
+
                             }
-
-                        }
-
-
+                        });
                     }
-                });
-            }
-        }, 0, speedValue);
-        break;
-    }
-    startButton.setEnabled(false);
+                }, 0, speedValue);
+                break;
+        }
+        startButton.setEnabled(false);
 
 
     }
@@ -288,25 +284,39 @@ public class DoubleCounterActivity extends Activity {
         }
     }
 
-    private void noAttempt(){
+    private void noAttempt() {
 
-            T1.cancel();
-            T1 = null;
-            T1stop = true;
-            T2.cancel();
-            T2 = null;
-            T2stop = true;
+        T1.cancel();
+        T1 = null;
+        T1stop = true;
+        T2.cancel();
+        T2 = null;
+        T2stop = true;
 
-            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-            alertDialog.setTitle("Loser");
-            alertDialog.setMessage("You're not gonna win if you don't try");
-            alertDialog.setButton("Retry", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                    finish();
-                }
-            });
+//            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+//            alertDialog.setTitle("Loser");
+//            alertDialog.setMessage("You're not gonna win if you don't try");
+//            alertDialog.setButton("Retry", new DialogInterface.OnClickListener() {
+//                public void onClick(DialogInterface dialog, int which) {
+//                    finish();
+//                }
+//            });
+//
+//        alertDialog.show();
 
-        alertDialog.show();
+        new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+                .setTitleText("Loser")
+                .setContentText("You'r not gonna win if you don't try")
+                .setConfirmText("Let's do this")
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        sDialog.dismissWithAnimation();
+                        finish();
+                    }
+                })
+                .show();
+
         stopButton1.setEnabled(false);
         stopButton2.setEnabled(false);
         counterValue1 = 0;
@@ -316,65 +326,128 @@ public class DoubleCounterActivity extends Activity {
         startButton.setEnabled(true);
 
     }
+
     private void calculateScore() {
         if (T1stop == true && T2stop == true) {
             if (selectedDoubleLevel == 1) {
                 if (counterValue1 == goalValue && counterValue2 == goalValue) {
-                    AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-                    alertDialog.setTitle("Winner");
-                    alertDialog.setMessage("Those stopping skills");
-                    alertDialog.setButton("Retry", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            int progression = progressionFile.getInt("progressionNumber",2);
-                            progression++;
-                            progressionEditor.putInt("progressionNumber", progression);
-                            progressionEditor.apply();
-                            selectedDoubleLevel = 2;
-                            speedValue = 25;
-                        }
-                    });
+//                    AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+//                    alertDialog.setTitle("Winner");
+//                    alertDialog.setMessage("Those stopping skills");
+//                    alertDialog.setButton("Retry", new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            int progression = progressionFile.getInt("progressionNumber",2);
+//                            progression++;
+//                            progressionEditor.putInt("progressionNumber", progression);
+//                            progressionEditor.apply();
+//                            selectedDoubleLevel = 2;
+//                            speedValue = 25;
+//                        }
+//                    });
+//                    alertDialog.show();
 
-                    alertDialog.show();
+                    new SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
+                            .setTitleText("Winner")
+                            .setContentText("Those stopping skills")
+                            .setConfirmText("Next")
+                            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                @Override
+                                public void onClick(SweetAlertDialog sDialog) {
+                                    sDialog.dismissWithAnimation();
+                                    speedDisplay.setText("x2");
+                                    int progression = progressionFile.getInt("progressionNumber", 2);
+                                    progression++;
+                                    progressionEditor.putInt("progressionNumber", progression);
+                                    progressionEditor.apply();
+                                    selectedDoubleLevel = 2;
+                                    speedValue = 25;
+                                }
+                            })
+                            .show();
                 } else {
-                    AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-                    alertDialog.setTitle("Loser");
-                    alertDialog.setMessage(counterValue1 + " - " + counterValue2 + ": Too Slow");
-                    alertDialog.setButton("Retry", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            startButton.setEnabled(true);
-                        }
-                    });
+//                    AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+//                    alertDialog.setTitle("Loser");
+//                    alertDialog.setMessage(counterValue1 + " - " + counterValue2 + ": Too Slow");
+//                    alertDialog.setButton("Retry", new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            startButton.setEnabled(true);
+//                        }
+//                    });
+//
+//                    alertDialog.show();
 
-                    alertDialog.show();
+                    new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText("Loser")
+                            .setContentText(counterValue1 + " - " + counterValue2 + ": Too Slow")
+                            .setConfirmText("Retry")
+                            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                @Override
+                                public void onClick(SweetAlertDialog sDialog) {
+                                    sDialog.dismissWithAnimation();
+                                    startButton.setEnabled(true);
+                                }
+                            })
+                            .show();
                 }
             }
             if (selectedDoubleLevel == 2) {
                 if (counterValue1 == goalValue && counterValue2 == goalValue) {
-                    AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-                    alertDialog.setTitle("Winner");
-                    alertDialog.setMessage("Impressive");
-                    alertDialog.setButton("Retry", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            int progression = progressionFile.getInt("progressionNumber",3);
-                            progression++;
-                            progressionEditor.putInt("progressionNumber", progression);
-                            progressionEditor.apply();
-                            startButton.setEnabled(true);
-                        }
-                    });
+//                    AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+//                    alertDialog.setTitle("Winner");
+//                    alertDialog.setMessage("Impressive");
+//                    alertDialog.setButton("Retry", new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            int progression = progressionFile.getInt("progressionNumber", 3);
+//                            progression++;
+//                            progressionEditor.putInt("progressionNumber", progression);
+//                            progressionEditor.apply();
+//                            startButton.setEnabled(true);
+//                        }
+//                    });
+//
+//                    alertDialog.show();
 
-                    alertDialog.show();
+                    new SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
+                            .setTitleText("Winner")
+                            .setContentText("Impressive")
+                            .setConfirmText("Retry")
+                            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                @Override
+                                public void onClick(SweetAlertDialog sDialog) {
+                                    sDialog.dismissWithAnimation();
+                                    int progression = progressionFile.getInt("progressionNumber", 3);
+                                    progression++;
+                                    progressionEditor.putInt("progressionNumber", progression);
+                                    progressionEditor.apply();
+                                    startButton.setEnabled(true);
+                                }
+                            })
+                            .show();
                 } else {
-                    AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-                    alertDialog.setTitle("Loser");
-                    alertDialog.setMessage(counterValue1 + " - " + counterValue2 + ": Too Slow");
-                    alertDialog.setButton("Retry", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            startButton.setEnabled(true);
-                        }
-                    });
+//                    AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+//                    alertDialog.setTitle("Loser");
+//                    alertDialog.setMessage(counterValue1 + " - " + counterValue2 + ": Too Slow");
+//                    alertDialog.setButton("Retry", new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            startButton.setEnabled(true);
+//                        }
+//                    });
+//
+//                    alertDialog.show();
 
-                    alertDialog.show();
+                    new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText("Loser")
+                            .setContentText(counterValue1 + " - " + counterValue2 + ": Too Slow")
+                            .setConfirmText("Retry")
+                            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                @Override
+                                public void onClick(SweetAlertDialog sDialog) {
+                                    sDialog.dismissWithAnimation();
+                                    startButton.setEnabled(true);
+
+                                }
+                            })
+                            .show();
                 }
 
 
@@ -383,7 +456,7 @@ public class DoubleCounterActivity extends Activity {
     }
 
     public void returnToHomeScreenButtonClicked(View view) {
-        Intent openHomeScreen = new Intent(DoubleCounterActivity.this,StartMenu.class );
+        Intent openHomeScreen = new Intent(DoubleCounterActivity.this, StartMenu.class);
         startActivity(openHomeScreen);
     }
 }

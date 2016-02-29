@@ -20,6 +20,8 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 
 public class CustomLevel extends Activity {
 
@@ -169,27 +171,46 @@ public class CustomLevel extends Activity {
     private void calculateScore(){
         if(counterValue == goalScore) {
 
-            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-            alertDialog.setTitle("Winner");
-            alertDialog.setMessage(counterValue + ": Congrats, now try it a little faster");
-            alertDialog.setButton("Change speed", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                    finish();
-                }
-            });
+//            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+//            alertDialog.setTitle("Winner");
+//            alertDialog.setMessage(counterValue + ": Congrats, now try it a little faster");
+//            alertDialog.setButton("Change speed", new DialogInterface.OnClickListener() {
+//                public void onClick(DialogInterface dialog, int which) {
+//                    finish();
+//                }
+//            });
+//
+//            alertDialog.show();
 
-            alertDialog.show();
+            new SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
+                    .setTitleText("Winner")
+                    .setContentText(counterValue + ": Congrats, now try it a little faster")
+                    .setConfirmText("Change Speed")
+                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sDialog) {
+                            sDialog.dismissWithAnimation();
+                            finish();
+                        }
+                    })
+                    .show();
         }else{
-            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-            alertDialog.setTitle("Loser");
-            alertDialog.setMessage(counterValue + ": Don't yell at me for making it too hard");
-            alertDialog.setButton("Retry", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                    startButton.setEnabled(true);
-                }
-            });
+//            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+//            alertDialog.setTitle("Loser");
+//            alertDialog.setMessage(counterValue + ": Don't yell at me for making it too hard");
+//            alertDialog.setButton("Retry", new DialogInterface.OnClickListener() {
+//                public void onClick(DialogInterface dialog, int which) {
+//                }
+//            });
+//
+//            alertDialog.show();
 
-            alertDialog.show();
+            new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+                    .setTitleText("Loser")
+                    .setContentText(counterValue + ": Don't yell at me for making it too hard")
+                    .show();
+            startButton.setEnabled(true);
+
         }
 
     }

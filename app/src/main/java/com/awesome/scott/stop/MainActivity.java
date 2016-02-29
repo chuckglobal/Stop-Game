@@ -22,6 +22,8 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 
 public class MainActivity extends Activity {
 
@@ -253,38 +255,59 @@ public class MainActivity extends Activity {
 
         if(selectedLevel == 1) {
             if (counterValue == goalScore) {
-                AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-                alertDialog.setTitle("Winner");
-                alertDialog.setMessage("But can you take on two?");
-                alertDialog.setButton("Next Level", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        int progression = progressionFile.getInt("progressionNumber",0);
-                        progression++;
-                        progressionEditor.putInt("progressionNumber", progression);
-                        progressionEditor.apply();
-                        Intent intentLevel = new Intent(MainActivity.this, MainActivity.class);
-                        Bundle bundle = new Bundle();
-                        bundle.putInt("speed", 25);
-                        bundle.putInt("levelSelected", 2);
-                        intentLevel.putExtras(bundle);
-                        startActivity(intentLevel);
-                        startButton.setEnabled(true);
+//                AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+//                alertDialog.setTitle("Winner");
+//                alertDialog.setMessage("But can you take on two?");
+//                alertDialog.setButton("Next Level", new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int which) {
 
-                    }
-                });
 
-                alertDialog.show();
+//                    }
+//                });
+//
+//                alertDialog.show();
+
+                new SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
+                        .setTitleText("Winner")
+                        .setContentText("Onto the next one!")
+                        .setConfirmText("Let's do this")
+                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                            @Override
+                            public void onClick(SweetAlertDialog sDialog) {
+                                sDialog.dismissWithAnimation();
+                                int progression = progressionFile.getInt("progressionNumber", 0);
+                                progression++;
+                                progressionEditor.putInt("progressionNumber", progression);
+                                progressionEditor.apply();
+                                Intent intentLevel = new Intent(MainActivity.this, MainActivity.class);
+                                Bundle bundle = new Bundle();
+                                bundle.putInt("speed", 25);
+                                bundle.putInt("levelSelected", 2);
+                                intentLevel.putExtras(bundle);
+                                startActivity(intentLevel);
+                                startButton.setEnabled(true);
+                            }
+                        })
+                        .show();
+
+
+
+
             } else {
-                AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-                alertDialog.setTitle("Loser");
-                alertDialog.setMessage(counterValue + ": And you thought it would be easy ");
-                alertDialog.setButton("Retry", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
+//                AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+//                alertDialog.setTitle("Loser");
+//                alertDialog.setMessage(counterValue + ": And you thought it would be easy ");
+//                alertDialog.setButton("Retry", new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int which) {
                         startButton.setEnabled(true);
-                    }
-                });
-
-                alertDialog.show();
+//                    }
+//                });
+//
+//                alertDialog.show();
+                new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+                        .setTitleText("Strike")
+                        .setContentText("And you thought it would be easy")
+                        .show();
 
             }
         }
@@ -292,40 +315,72 @@ public class MainActivity extends Activity {
         //if the x2 level was selected use seperate AlertDialog
         if(selectedLevel == 2){
             if (counterValue == goalScore) {
-                AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-                alertDialog.setTitle("Winner");
-                alertDialog.setMessage("hmm... lets see how you handle the next one");
-                alertDialog.setButton("Next Level", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
+//                AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+//                alertDialog.setTitle("Winner");
+//                alertDialog.setMessage("hmm... lets see how you handle the next one");
+//                alertDialog.setButton("Next Level", new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int which) {
+//
+//                        int progression = progressionFile.getInt("progressionNumber", 1);
+//                        progression++;
+//                        editor.putInt("progressionNumber", progression);
+//                        editor.apply();
+//
+//                        Intent openDouble = new Intent(MainActivity.this, DoubleCounterActivity.class);
+//                        Bundle bundle = new Bundle();
+//                        bundle.putInt("doubleSpeedx1", 50);
+//                        bundle.putInt("doubleLevel", 1);
+//                        openDouble.putExtras(bundle);
+//
+//                        startActivity(openDouble);
+//
+//                    }
+//                });
+//
+//                alertDialog.show();
 
-                        int progression = progressionFile.getInt("progressionNumber",1);
-                        progression++;
-                        editor.putInt("progressionNumber", progression);
-                        editor.apply();
+                new SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
+                        .setTitleText("Winner")
+                        .setContentText("hmm... lets see how you handle the next one")
+                        .setConfirmText("Next Level")
+                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                            @Override
+                            public void onClick(SweetAlertDialog sDialog) {
+                                sDialog.dismissWithAnimation();
 
-                        Intent openDouble = new Intent(MainActivity.this, DoubleCounterActivity.class);
-                        Bundle bundle = new Bundle();
-                        bundle.putInt("doubleSpeedx1", 50);
-                        bundle.putInt("doubleLevel", 1);
-                        openDouble.putExtras(bundle);
+                                int progression = progressionFile.getInt("progressionNumber", 1);
+                                progression++;
+                                editor.putInt("progressionNumber", progression);
+                                editor.apply();
 
-                        startActivity(openDouble);
+                                Intent openDouble = new Intent(MainActivity.this, DoubleCounterActivity.class);
+                                Bundle bundle = new Bundle();
+                                bundle.putInt("doubleSpeedx1", 50);
+                                bundle.putInt("doubleLevel", 1);
+                                openDouble.putExtras(bundle);
 
-                    }
-                });
+                                startActivity(openDouble);
+                            }
+                        })
+                        .show();
 
-                alertDialog.show();
+
             } else {
-                AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-                alertDialog.setTitle("Loser");
-                alertDialog.setMessage(counterValue + ": And you thought it would be easy ");
-                alertDialog.setButton("Retry", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        startButton.setEnabled(true);
-                    }
-                });
+//                AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+//                alertDialog.setTitle("Loser");
+//                alertDialog.setMessage(counterValue + ": And you thought it would be easy ");
+//                alertDialog.setButton("Retry", new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int which) {
+//                    }
+//                });
 
-                alertDialog.show();
+//                alertDialog.show();
+
+                new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+                        .setTitleText("Strike")
+                        .setContentText("And you thought it would be easy")
+                        .show();
+                        startButton.setEnabled(true);
 
             }
         }
@@ -336,7 +391,7 @@ public class MainActivity extends Activity {
 
 
 
-        Intent openHomeScreen = new Intent(MainActivity.this,StartMenu.class);
+        Intent openHomeScreen = new Intent(MainActivity.this, StartMenu.class);
         startActivity(openHomeScreen);
     }
 
