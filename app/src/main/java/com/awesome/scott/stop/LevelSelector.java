@@ -18,6 +18,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 import java.util.List;
 
 
@@ -45,7 +48,9 @@ public class LevelSelector extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_selector);
 
-
+        YoYo.with(Techniques.StandUp)
+                .duration(1000)
+                .playOn(findViewById(R.id.title));
 
 //        rootContainer = (ViewGroup)findViewById(R.id.rootContainer);
 //

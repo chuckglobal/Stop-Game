@@ -14,6 +14,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 import org.w3c.dom.Text;
 
 import java.util.List;
@@ -30,6 +33,7 @@ public class StartMenu extends Activity {
     int doubleStopAttemptsx2 = 0;
 
     private TextView totalAttemptsView;
+    private TextView titleView;
 
     public MediaPlayer backgroundMusicPlayer;
     public boolean backgroundMusicIsPlayingBool;
@@ -38,6 +42,8 @@ public class StartMenu extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_menu);
+
+        titleView = (TextView)findViewById(R.id.title);
 
         //set music player
         backgroundMusicPlayer = MediaPlayer.create(StartMenu.this,R.raw.holfix_basic_fun);
@@ -52,6 +58,10 @@ public class StartMenu extends Activity {
         x2SingleStopAttempts = loadAttempts.getInt("2xSingleStopAttempts", 0);
         doubleStopAttempts = loadAttempts.getInt("doubleStopAttempts",0);
         doubleStopAttemptsx2 = loadAttempts.getInt("doubleStopAttemptsx2", 0);
+
+        YoYo.with(Techniques.RotateInDownLeft)
+                .duration(1000)
+                .playOn(findViewById(R.id.title));
 
         //set display according to saved data
         int totalAttempts = x1SingleStopAttempts + x2SingleStopAttempts + doubleStopAttempts + doubleStopAttemptsx2;

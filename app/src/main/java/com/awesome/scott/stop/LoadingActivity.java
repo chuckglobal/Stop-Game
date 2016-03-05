@@ -8,22 +8,18 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.romainpiel.shimmer.Shimmer;
-import com.romainpiel.shimmer.ShimmerTextView;
+
 
 public class LoadingActivity extends Activity {
 
-    ShimmerTextView productionsView;
-    Shimmer shimmer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
 
-        productionsView = (ShimmerTextView)findViewById(R.id.shimmer_tv);
-        shimmer = new Shimmer();
-        shimmer.start(productionsView);
+
 
         new Handler().postDelayed(new Runnable() {
             @Override

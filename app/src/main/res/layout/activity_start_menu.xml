@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Menu_Title"
-
+        android:id="@+id/title"
         android:textSize="30sp"
         android:textColor="#E53935"
         android:layout_marginBottom="50dp"/>

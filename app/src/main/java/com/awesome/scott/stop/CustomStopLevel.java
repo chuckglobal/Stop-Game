@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 
 public class CustomStopLevel extends Activity {
 
@@ -20,6 +23,10 @@ public class CustomStopLevel extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_stop_level);
+
+        YoYo.with(Techniques.StandUp)
+                .duration(1000)
+                .playOn(findViewById(R.id.title));
 
         seekBar = (SeekBar)findViewById(R.id.seekBar);
         speedDisplay = (TextView)findViewById(R.id.speedDisplay);
