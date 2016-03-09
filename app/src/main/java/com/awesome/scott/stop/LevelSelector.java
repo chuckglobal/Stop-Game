@@ -48,20 +48,9 @@ public class LevelSelector extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_selector);
 
-        YoYo.with(Techniques.StandUp)
-                .duration(1000)
-                .playOn(findViewById(R.id.title));
 
-//        rootContainer = (ViewGroup)findViewById(R.id.rootContainer);
-//
-//        enterScene = Scene.getSceneForLayout(rootContainer, R.layout.acitivity_level_selector_enter_animation, this);
-//        defaultScene = Scene.getSceneForLayout(rootContainer, R.layout.activity_level_selector, this);
-//        exitScene = Scene.getSceneForLayout(rootContainer,R.layout.activity_level_selector_exit_animation,this);
-//
-//        transitionMgr = TransitionInflater.from(this).inflateTransition(R.transition.transitions);
-//
-//        enterScene.enter();
-//        TransitionManager.go(defaultScene,transitionMgr);
+
+
 
         singleStopx1 = (Button)findViewById(R.id.singleStopx1);
         singleStopx2 = (Button)findViewById(R.id.singleStopx2);
@@ -74,6 +63,22 @@ public class LevelSelector extends Activity {
         progressionNumber = sharedPref.getInt("progressionNumber",0);
 //        determineProgression();
 
+        YoYo.with(Techniques.StandUp)
+                .duration(1000)
+                .playOn(findViewById(R.id.title));
+
+        YoYo.with(Techniques.Landing)
+                .duration(700)
+                .playOn(singleStopx1);
+        YoYo.with(Techniques.Landing)
+                .duration(700)
+                .playOn(singleStopx2);
+        YoYo.with(Techniques.Landing)
+                .duration(700)
+                .playOn(doubleStopx1);
+        YoYo.with(Techniques.Landing)
+                .duration(700)
+                .playOn(doubleStopx2);
 
 
     }

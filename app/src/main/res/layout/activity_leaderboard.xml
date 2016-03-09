@@ -125,7 +125,7 @@
         android:layout_marginTop="20dp"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Thaks to Sweet Dialog Library"/>
+    android:text="Thanks to Sweet Dialog Library"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
