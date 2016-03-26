@@ -63,22 +63,25 @@ public class LevelSelector extends Activity {
         progressionNumber = sharedPref.getInt("progressionNumber",0);
 //        determineProgression();
 
-        YoYo.with(Techniques.StandUp)
+        YoYo.with(Techniques.RotateInDownLeft)
                 .duration(1000)
                 .playOn(findViewById(R.id.title));
 
         YoYo.with(Techniques.Landing)
-                .duration(700)
+                .duration(2000)
                 .playOn(singleStopx1);
         YoYo.with(Techniques.Landing)
-                .duration(700)
+                .duration(2000)
                 .playOn(singleStopx2);
         YoYo.with(Techniques.Landing)
-                .duration(700)
+                .duration(2000)
                 .playOn(doubleStopx1);
         YoYo.with(Techniques.Landing)
-                .duration(700)
+                .duration(2000)
                 .playOn(doubleStopx2);
+        YoYo.with(Techniques.Landing)
+                .duration(2000)
+                .playOn(findViewById(R.id.customButton));
 
 
     }
