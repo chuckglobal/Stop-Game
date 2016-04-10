@@ -6,8 +6,11 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
+import android.transition.Fade;
 import android.transition.Scene;
+import android.transition.Slide;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
 import android.transition.TransitionManager;
@@ -48,7 +51,7 @@ public class LevelSelector extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_selector);
 
-
+//        setupWindowAnimations();
 
 
 
@@ -84,7 +87,29 @@ public class LevelSelector extends Activity {
                 .playOn(findViewById(R.id.customButton));
 
 
+//        setupWindowAnimationsExit();
+
     }
+
+//    private void setupWindowAnimations() {
+//        Fade fade = null;
+//
+//            fade = new Fade();
+//            fade.setDuration(1000);
+//            getWindow().setEnterTransition(fade);
+//
+//
+//    }
+//
+//    private void setupWindowAnimationsExit() {
+//        Slide slide = null;
+//
+//            slide = new Slide();
+//            slide.setDuration(1000);
+//            getWindow().setExitTransition(slide);
+//
+//
+//    }
 
 
 

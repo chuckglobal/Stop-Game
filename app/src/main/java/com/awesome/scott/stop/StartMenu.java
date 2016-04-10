@@ -7,12 +7,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.transition.Slide;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
@@ -42,6 +45,8 @@ public class StartMenu extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_menu);
+
+//        setupWindowAnimations();
 
         titleView = (TextView)findViewById(R.id.title);
 
@@ -73,9 +78,22 @@ public class StartMenu extends Activity {
             totalAttemptsView.setText(String.valueOf(totalAttempts));
         }
 
+
+
 //        startBackgroundMusic();
 
     }
+
+//    private void setupWindowAnimations() {
+//        Slide slide = null;
+//
+//            slide = new Slide();
+//            slide.setDuration(1000);
+//            getWindow().setExitTransition(slide);
+//        Toast.makeText(StartMenu.this, "exit transition set", Toast.LENGTH_SHORT).show();
+//
+//    }
+
 
 
 
