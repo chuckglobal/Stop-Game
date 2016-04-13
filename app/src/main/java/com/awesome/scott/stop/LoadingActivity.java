@@ -52,7 +52,7 @@ public class LoadingActivity extends Activity {
 
         anim = AnimationUtils.loadAnimation(this, R.anim.translate);
         anim.reset();
-        LinearLayout l2 = (LinearLayout) findViewById(R.id.splashcreenLayout);
+        LinearLayout l2 = (LinearLayout) findViewById(R.id.start_menu);
         l2.setVisibility(View.VISIBLE);
         l2.clearAnimation();
         l2.startAnimation(anim);
