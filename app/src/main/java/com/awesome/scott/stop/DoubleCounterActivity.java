@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 import java.util.Timer;
@@ -46,6 +47,7 @@ public class DoubleCounterActivity extends Activity {
 
     int counterValue1;
     int counterValue2;
+    int cheatValue = 0;
 
     int numberOfAttemptsDouble = 0;
     TextView attemptsDisplay;
@@ -355,8 +357,15 @@ public class DoubleCounterActivity extends Activity {
                                 public void onClick(SweetAlertDialog sDialog) {
                                     sDialog.dismissWithAnimation();
                                     speedDisplay.setText("x2");
+
                                     int progression = progressionFile.getInt("progressionNumber", 2);
+                                    if(progression < 2){
+                                        progression = 2;
+                                    }
                                     progression++;
+                                    editor.putInt("progressionNumber", progression);
+                                    editor.commit();
+                                    
                                     progressionEditor.putInt("progressionNumber", progression);
                                     progressionEditor.apply();
                                     selectedDoubleLevel = 2;
@@ -417,6 +426,9 @@ public class DoubleCounterActivity extends Activity {
                                     sDialog.dismissWithAnimation();
                                     int progression = progressionFile.getInt("progressionNumber", 3);
                                     progression++;
+                                    editor.putInt("progressionNumber", progression);
+                                    editor.commit();
+
                                     progressionEditor.putInt("progressionNumber", progression);
                                     progressionEditor.apply();
                                     startButton.setEnabled(true);
@@ -458,5 +470,44 @@ public class DoubleCounterActivity extends Activity {
     public void returnToHomeScreenButtonClicked(View view) {
         Intent openHomeScreen = new Intent(DoubleCounterActivity.this, StartMenu.class);
         startActivity(openHomeScreen);
+    }
+
+    public void cheatButtonClicked(View view) {
+
+        cheatValue++;
+        if (cheatValue == 3){
+            cheatValue = 0;
+            if(selectedDoubleLevel == 1){
+                speedDisplay.setText("x2");
+
+                int progression = progressionFile.getInt("progressionNumber", 2);
+                if(progression < 2){
+                    progression = 2;
+                }
+                progression++;
+                editor.putInt("progressionNumber", progression);
+                editor.commit();
+
+                progressionEditor.putInt("progressionNumber", progression);
+                progressionEditor.apply();
+                selectedDoubleLevel = 2;
+                speedValue = 25;
+                Toast.makeText(DoubleCounterActivity.this, "Cheat Activated", Toast.LENGTH_SHORT).show();
+
+            }
+            if (selectedDoubleLevel == 2){
+                int progression = progressionFile.getInt("progressionNumber", 3);
+                progression++;
+                editor.putInt("progressionNumber", progression);
+                editor.commit();
+
+                progressionEditor.putInt("progressionNumber", progression);
+                progressionEditor.apply();
+                startButton.setEnabled(true);
+                Toast.makeText(DoubleCounterActivity.this, "Cheat Activated", Toast.LENGTH_SHORT).show();
+
+            }
+        }
+
     }
 }

@@ -33,7 +33,7 @@
         android:padding="20dp"
         android:includeFontPadding="false"
         android:textAllCaps="false"
-        android:enabled="true"
+        android:enabled="false"
         android:id="@+id/singleStopx1"
         android:onClick="level100Pressed"/>
     <Button
@@ -44,7 +44,7 @@
         android:textAllCaps="false"
         android:textSize="20sp"
         android:padding="20dp"
-        android:enabled="true"
+        android:enabled="false"
         android:id="@+id/singleStopx2"
         android:onClick="level200Pressed"/>
     <Button
@@ -55,7 +55,7 @@
         android:textSize="20sp"
         android:padding="20dp"
         android:textAllCaps="false"
-        android:enabled="true"
+        android:enabled="false"
         android:id="@+id/doubleStopx1"
         android:onClick="doubleStopButtonPressed"/>
     <Button
@@ -66,7 +66,7 @@
         android:padding="20dp"
         style="@style/Base.Widget.AppCompat.Button.Borderless"
         android:textAllCaps="false"
-        android:enabled="true"
+        android:enabled="false"
         android:id="@+id/doubleStopx2"
         android:onClick="doubleStopx2ButtonPressed"/>
     <Button

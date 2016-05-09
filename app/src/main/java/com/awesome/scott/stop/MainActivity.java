@@ -15,7 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
+import android.widget.Toast;
 
 
 import java.util.List;
@@ -39,6 +39,8 @@ public class MainActivity extends Activity {
     int levelSpeed;
     int selectedLevel;
     int maxValue = 200;
+    int cheatValue = 0;
+
     final int goalScore = 100;
     private final int sentinel = 0;
     int numberOfAttempts = 0;
@@ -278,7 +280,7 @@ public class MainActivity extends Activity {
                                 int progression = progressionFile.getInt("progressionNumber", 0);
                                 progression++;
                                 progressionEditor.putInt("progressionNumber", progression);
-                                progressionEditor.apply();
+                                progressionEditor.commit();
                                 Intent intentLevel = new Intent(MainActivity.this, MainActivity.class);
                                 Bundle bundle = new Bundle();
                                 bundle.putInt("speed", 25);
@@ -348,10 +350,11 @@ public class MainActivity extends Activity {
                             public void onClick(SweetAlertDialog sDialog) {
                                 sDialog.dismissWithAnimation();
 
+
                                 int progression = progressionFile.getInt("progressionNumber", 1);
                                 progression++;
                                 editor.putInt("progressionNumber", progression);
-                                editor.apply();
+                                editor.commit();
 
                                 Intent openDouble = new Intent(MainActivity.this, DoubleCounterActivity.class);
                                 Bundle bundle = new Bundle();
@@ -400,6 +403,43 @@ public class MainActivity extends Activity {
         if (debug == 5){
             counterValue = goalScore;
             calculateScore();
+        }
+    }
+
+    public void cheatButtonClicked(View view) {
+        cheatValue++;
+        if (cheatValue == 3){
+            cheatValue = 0;
+            if (selectedLevel == 1){
+                int progression = progressionFile.getInt("progressionNumber", 0);
+                progression++;
+                progressionEditor.putInt("progressionNumber", progression);
+                progressionEditor.commit();
+                Intent intentLevel = new Intent(MainActivity.this, MainActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("speed", 25);
+                bundle.putInt("levelSelected", 2);
+                intentLevel.putExtras(bundle);
+                startActivity(intentLevel);
+                startButton.setEnabled(true);
+                Toast.makeText(MainActivity.this, "Cheat Activated", Toast.LENGTH_SHORT).show();
+            }
+            if (selectedLevel == 2){
+                int progression = progressionFile.getInt("progressionNumber", 1);
+                progression = 2;
+                progressionEditor.putInt("progressionNumber", progression);
+                progressionEditor.commit();
+
+                Intent openDouble = new Intent(MainActivity.this, DoubleCounterActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("doubleSpeedx1", 50);
+                bundle.putInt("doubleLevel", 1);
+                openDouble.putExtras(bundle);
+
+                startActivity(openDouble);
+                Toast.makeText(MainActivity.this, "Cheat Activated", Toast.LENGTH_SHORT).show();
+
+            }
         }
     }
 }

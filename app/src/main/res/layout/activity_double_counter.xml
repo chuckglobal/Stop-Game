@@ -14,12 +14,19 @@
 
         android:gravity="right">
         <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:onClick="cheatButtonClicked"/>
+        <Button
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:background="@drawable/ic_action_action_home"
             android:onClick="returnToHomeScreenButtonClicked"
             style="@style/Base.Widget.AppCompat.Button.Borderless"
             />
+
+
 
     </LinearLayout>
 

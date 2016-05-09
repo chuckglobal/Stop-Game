@@ -14,6 +14,7 @@ import android.transition.Slide;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
 import android.transition.TransitionManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -60,11 +61,11 @@ public class LevelSelector extends Activity {
         doubleStopx1 = (Button)findViewById(R.id.doubleStopx1);
         doubleStopx2 = (Button)findViewById(R.id.doubleStopx2);
 
-        sharedPref = getSharedPreferences("levelProgressionProgressFile", MODE_PRIVATE);
+        sharedPref = getSharedPreferences("levelProgressionProgressFile", 0);
         editor = sharedPref.edit();
 
         progressionNumber = sharedPref.getInt("progressionNumber",0);
-//        determineProgression();
+        determineProgression();
 
         YoYo.with(Techniques.RotateInDownLeft)
                 .duration(1000)
@@ -89,6 +90,18 @@ public class LevelSelector extends Activity {
 
 //        setupWindowAnimationsExit();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        determineProgression();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        determineProgression();
     }
 
 //    private void setupWindowAnimations() {

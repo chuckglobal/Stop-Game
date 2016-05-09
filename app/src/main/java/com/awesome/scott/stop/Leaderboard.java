@@ -129,6 +129,8 @@ public class Leaderboard extends StartMenu {
                 doubleScore.setText(String.valueOf(doubleStopAttempts));
                 doubleScorex2.setText(String.valueOf(doubleStopAttemptsx2));
 
+                Toast.makeText(Leaderboard.this, "Data Reset", Toast.LENGTH_SHORT).show();
+
             }
         });
 
