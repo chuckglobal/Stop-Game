@@ -24,6 +24,9 @@ import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.List;
 
@@ -54,7 +57,11 @@ public class LevelSelector extends Activity {
 
 //        setupWindowAnimations();
 
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-1876787092384518~2010397989");
 
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         singleStopx1 = (Button)findViewById(R.id.singleStopx1);
         singleStopx2 = (Button)findViewById(R.id.singleStopx2);

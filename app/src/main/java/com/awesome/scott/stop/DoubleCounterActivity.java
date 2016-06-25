@@ -14,6 +14,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -36,7 +40,7 @@ public class DoubleCounterActivity extends Activity {
     Timer T2;
 
     int n;
-    final int maxValue = 200;
+    final int maxValue = 120;
     final int goalValue = 100;
     final int delayValue = 40;
     private int speedValue = 30;
@@ -64,6 +68,13 @@ public class DoubleCounterActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_double_counter);
+
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-1876787092384518~2010397989");
+
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
 
         Intent intentExtras = getIntent();
         retrieveSelectedlevel(intentExtras);
@@ -363,8 +374,8 @@ public class DoubleCounterActivity extends Activity {
                                         progression = 2;
                                     }
                                     progression++;
-                                    editor.putInt("progressionNumber", progression);
-                                    editor.commit();
+                                    progressionEditor.putInt("progressionNumber", progression);
+                                    progressionEditor.commit();
                                     
                                     progressionEditor.putInt("progressionNumber", progression);
                                     progressionEditor.apply();
@@ -426,8 +437,8 @@ public class DoubleCounterActivity extends Activity {
                                     sDialog.dismissWithAnimation();
                                     int progression = progressionFile.getInt("progressionNumber", 3);
                                     progression++;
-                                    editor.putInt("progressionNumber", progression);
-                                    editor.commit();
+                                    progressionEditor.putInt("progressionNumber", progression);
+                                    progressionEditor.commit();
 
                                     progressionEditor.putInt("progressionNumber", progression);
                                     progressionEditor.apply();

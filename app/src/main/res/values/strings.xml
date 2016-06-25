@@ -17,4 +17,8 @@
     <string name="Menu_Title">Can you stop it?</string>
     <string name="leaderboard">Leaderboard</string>
     <string name="title_activity_loading">LoadingActivity</string>
+
+    <string name="bannerLevelSelectorId">ca-app-pub-1876787092384518/3487131185</string>
+    <string name="bannerActivityMainId">ca-app-pub-1876787092384518/6300996786</string>
+    <string name="bannerActivityDoubleId">ca-app-pub-1876787092384518/7777729986</string>
 </resources>

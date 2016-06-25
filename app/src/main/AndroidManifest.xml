@@ -3,17 +3,15 @@
     package="com.awesome.scott.stop"
     xmlns:tools="http://schemas.android.com/tools"
     >
-
-    <uses-permission android:name="android.permission.GET_TASKS"/>
-
-
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme"
-        tools:replace="android:icon,android:theme">
+        tools:replace="android:icon,android:theme"
+    >
 
         <activity
             android:name=".StartMenu"

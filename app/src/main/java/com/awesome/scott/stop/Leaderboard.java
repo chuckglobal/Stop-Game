@@ -71,37 +71,6 @@ public class Leaderboard extends StartMenu {
 
     public void resetButtonPressed(View view) {
 
-//        new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
-//                .setTitleText("Are you sure?")
-//                .setContentText("All attempts and progress will be erased!")
-//                .setConfirmText("Yes, delete it!")
-//                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-//                    @Override
-//                    public void onClick(SweetAlertDialog sDialog) {
-//                        editor.clear();
-//                        editor.commit();
-//
-//                        progressionEditor.clear();
-//                        progressionEditor.commit();
-//
-//                        x1SingleStopAttempts = loadAttempts.getInt("1xSingleStopAttempts", 0);
-//                        x2SingleStopAttempts = loadAttempts.getInt("2xSingleStopAttempts", 0);
-//                        doubleStopAttempts = loadAttempts.getInt("doubleStopAttempts", 0);
-//                        doubleStopAttemptsx2 = loadAttempts.getInt("doubleStopAttemptsx2", 0);
-//
-//                        x1Score.setText(String.valueOf(x1SingleStopAttempts));
-//                        x2Score.setText(String.valueOf(x2SingleStopAttempts));
-//                        doubleScore.setText(String.valueOf(doubleStopAttempts));
-//                        doubleScorex2.setText(String.valueOf(doubleStopAttemptsx2));
-//                        sDialog.dismissWithAnimation();
-//                    }
-//                })
-//                .show();
-
-
-
-
-
         AlertDialog alertDialog = new AlertDialog.Builder(this).create();
         alertDialog.setTitle("Reset Your Attempts");
         alertDialog.setMessage("This will reset all of your attempts to 0, are you sure you want to continue?");

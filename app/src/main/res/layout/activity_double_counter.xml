@@ -1,12 +1,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     android:gravity="center"
     tools:context="com.awesome.scott.stop.DoubleCounterActivity"
-    android:background="@color/appBackgroundColor">
+    android:background="@drawable/background_gradient">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -113,6 +115,7 @@
             android:layout_height="wrap_content"
             android:text="x1"
             android:textStyle="bold"
+            android:textSize="30sp"
             android:id="@+id/speedDisplay1"/>
 
 
@@ -131,5 +134,16 @@
         android:textSize="40sp"
         android:id="@+id/attemptDisplay"
         android:textColor="#558B2F" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="50dp"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/bannerActivityDoubleId">
+    </com.google.android.gms.ads.AdView>
 
 </LinearLayout>

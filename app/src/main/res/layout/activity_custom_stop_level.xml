@@ -11,7 +11,7 @@
     android:gravity="center"
 
     tools:context="com.awesome.scott.stop.CustomStopLevel"
-    android:background="@color/appBackgroundColor">
+    android:background="@drawable/background_gradient">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

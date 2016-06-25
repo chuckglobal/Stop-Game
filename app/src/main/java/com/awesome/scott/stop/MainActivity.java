@@ -18,6 +18,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -38,7 +42,7 @@ public class MainActivity extends Activity {
     int counterValue = 0;
     int levelSpeed;
     int selectedLevel;
-    int maxValue = 200;
+    int maxValue = 120;
     int cheatValue = 0;
 
     final int goalScore = 100;
@@ -70,7 +74,11 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-1876787092384518~2010397989");
 
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         Intent intentExtras = getIntent();
         retrieveSelectedlevel(intentExtras);
@@ -317,29 +325,7 @@ public class MainActivity extends Activity {
         //if the x2 level was selected use seperate AlertDialog
         if(selectedLevel == 2){
             if (counterValue == goalScore) {
-//                AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-//                alertDialog.setTitle("Winner");
-//                alertDialog.setMessage("hmm... lets see how you handle the next one");
-//                alertDialog.setButton("Next Level", new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialog, int which) {
-//
-//                        int progression = progressionFile.getInt("progressionNumber", 1);
-//                        progression++;
-//                        editor.putInt("progressionNumber", progression);
-//                        editor.apply();
-//
-//                        Intent openDouble = new Intent(MainActivity.this, DoubleCounterActivity.class);
-//                        Bundle bundle = new Bundle();
-//                        bundle.putInt("doubleSpeedx1", 50);
-//                        bundle.putInt("doubleLevel", 1);
-//                        openDouble.putExtras(bundle);
-//
-//                        startActivity(openDouble);
-//
-//                    }
-//                });
-//
-//                alertDialog.show();
+
 
                 new SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
                         .setTitleText("Winner")
@@ -353,8 +339,8 @@ public class MainActivity extends Activity {
 
                                 int progression = progressionFile.getInt("progressionNumber", 1);
                                 progression++;
-                                editor.putInt("progressionNumber", progression);
-                                editor.commit();
+                                progressionEditor.putInt("progressionNumber", progression);
+                                progressionEditor.commit();
 
                                 Intent openDouble = new Intent(MainActivity.this, DoubleCounterActivity.class);
                                 Bundle bundle = new Bundle();
@@ -369,15 +355,7 @@ public class MainActivity extends Activity {
 
 
             } else {
-//                AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-//                alertDialog.setTitle("Loser");
-//                alertDialog.setMessage(counterValue + ": And you thought it would be easy ");
-//                alertDialog.setButton("Retry", new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialog, int which) {
-//                    }
-//                });
 
-//                alertDialog.show();
 
                 new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
                         .setTitleText("Strike")

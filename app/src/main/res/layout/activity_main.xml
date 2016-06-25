@@ -11,7 +11,7 @@
     android:id="@+id/activity_main_view"
 
     tools:context=".MainActivity"
-    android:background="@color/appBackgroundColor">
+    android:background="@drawable/background_gradient">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,6 +30,7 @@
             android:background="@drawable/ic_action_action_home"
             android:onClick="returnToHomeScreenButtonClicked"
             style="@style/Base.Widget.AppCompat.Button.Borderless"
+
             />
 
     </LinearLayout>
@@ -87,6 +88,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="x1"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:id="@+id/speedDisplay"/>
 
@@ -94,7 +96,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Attempts:"
-        android:textSize="20sp"
+        android:textSize="0sp"
         android:textStyle="bold"
         android:textColor="#ff000000" />
     <TextView
@@ -106,5 +108,15 @@
         android:textColor="#558B2F" />
 
 
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="50dp"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/bannerActivityMainId">
+    </com.google.android.gms.ads.AdView>
 
 </LinearLayout>
