@@ -71,7 +71,7 @@ public class DoubleCounterActivity extends Activity {
 
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-1876787092384518~2010397989");
 
-        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdView mAdView = (AdView) findViewById(R.id.adViewDouble);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
