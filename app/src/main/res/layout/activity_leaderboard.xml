@@ -3,7 +3,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.awesome.scott.stop.Leaderboard"
     android:background="@drawable/background_gradient"
     >
@@ -20,124 +19,185 @@
         android:fontFamily="serif-monospace"
         android:autoText="false"
         android:background="#ffffffff"
-        android:textColor="#ff000000" />
+        android:textColor="#ff000000"
+        tools:layout_conversion_absoluteX="0dp"
+        tools:layout_conversion_absoluteY="0dp"
+        tools:layout_conversion_absoluteWidth="411dp"
+        tools:layout_conversion_absoluteHeight="80dp" />
 
-    <TableLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
 
-        <TableRow>
+
+
             <TextView
                 android:text="Level"
                 android:textSize="30sp"
                 android:textStyle="bold"
 
-                android:textColor="#ff8bc34a" />
+                android:textColor="#ff8bc34a"
+                tools:layout_conversion_absoluteX="56dp"
+                tools:layout_conversion_absoluteY="90dp"
+                tools:layout_conversion_absoluteWidth="134dp"
+                tools:layout_conversion_absoluteHeight="35dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
             <TextView
-                android:layout_marginLeft="40dp"
                 android:text="Attempts"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                android:textColor="#ff8bc34a" />
-        </TableRow>
+                android:textColor="#ff8bc34a"
+                tools:layout_conversion_absoluteX="230dp"
+                tools:layout_conversion_absoluteY="90dp"
+                tools:layout_conversion_absoluteWidth="124dp"
+                tools:layout_conversion_absoluteHeight="35dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
 
         <!--1xSingleStop-->
-        <TableRow>
+
 
             <TextView
-                android:layout_marginTop="20dp"
                 android:text="Single Stop x1"
                 android:textSize="20sp"
-                android:textColor="#ff000000" />
+                android:textColor="#ff000000"
+                tools:layout_conversion_absoluteX="56dp"
+                tools:layout_conversion_absoluteY="145dp"
+                tools:layout_conversion_absoluteWidth="134dp"
+                tools:layout_conversion_absoluteHeight="23dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:textAllCaps="false"
+                android:textStyle="normal|bold" />
             <TextView
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="100dp"
                 android:text="0"
                 android:textSize="20dp"
                 android:id="@+id/x1ScoreDisplay"
-                android:textColor="#ff000000"/>
+                android:textColor="#ff000000"
+                tools:layout_conversion_absoluteX="290dp"
+                tools:layout_conversion_absoluteY="145dp"
+                tools:layout_conversion_absoluteWidth="64dp"
+                tools:layout_conversion_absoluteHeight="23dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-        </TableRow>
+
 
         <!--2xSingleStop-->
-        <TableRow>
-            <TextView
-                android:layout_marginTop="20dp"
-                android:text="Single Stop x2"
-                android:textSize="20sp"
-                android:textColor="#ff000000"/>
 
             <TextView
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="100dp"
+                android:text="Single Stop x2"
+                android:textSize="20sp"
+                android:textColor="#ff000000"
+                tools:layout_conversion_absoluteX="56dp"
+                tools:layout_conversion_absoluteY="189dp"
+                tools:layout_conversion_absoluteWidth="134dp"
+                tools:layout_conversion_absoluteHeight="23dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="normal|bold" />
+
+            <TextView
                 android:text="0"
                 android:textSize="20dp"
                 android:id="@+id/x2ScoreDisplay"
-                android:textColor="#ff000000"/>
+                android:textColor="#ff000000"
+                tools:layout_conversion_absoluteX="290dp"
+                tools:layout_conversion_absoluteY="189dp"
+                tools:layout_conversion_absoluteWidth="64dp"
+                tools:layout_conversion_absoluteHeight="23dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-        </TableRow>
+
 
         <!--doubleStop-->
-        <TableRow>
-            <TextView
-                android:layout_marginTop="20dp"
-                android:text="Double Stop x1"
-                android:textSize="20sp"
-                android:textColor="#ff000000"/>
 
             <TextView
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="100dp"
+                android:text="Double Stop x1"
+                android:textSize="20sp"
+                android:textColor="#ff000000"
+                tools:layout_conversion_absoluteX="56dp"
+                tools:layout_conversion_absoluteY="232dp"
+                tools:layout_conversion_absoluteWidth="134dp"
+                tools:layout_conversion_absoluteHeight="23dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="normal|bold" />
+
+            <TextView
                 android:text="0"
                 android:textSize="20dp"
                 android:id="@+id/doubleScoreDisplay"
-                android:textColor="#ff000000"/>
+                android:textColor="#ff000000"
+                tools:layout_conversion_absoluteX="290dp"
+                tools:layout_conversion_absoluteY="232dp"
+                tools:layout_conversion_absoluteWidth="64dp"
+                tools:layout_conversion_absoluteHeight="23dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
 
-        </TableRow>
 
-        <TableRow>
+
+
             <TextView
-                android:layout_marginTop="20dp"
                 android:text="Double Stop x2"
                 android:textSize="20sp"
                 android:textColor="#ff000000"
-                />
+                tools:layout_conversion_absoluteX="56dp"
+                tools:layout_conversion_absoluteY="276dp"
+                tools:layout_conversion_absoluteWidth="134dp"
+                tools:layout_conversion_absoluteHeight="23dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="normal|bold" />
 
             <TextView
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="100dp"
                 android:text="0"
                 android:textSize="20dp"
                 android:textColor="#ff000000"
                 android:id="@+id/doubleScoreDisplayx2"
-                />
+                tools:layout_conversion_absoluteX="290dp"
+                tools:layout_conversion_absoluteY="276dp"
+                tools:layout_conversion_absoluteWidth="64dp"
+                tools:layout_conversion_absoluteHeight="23dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-        </TableRow>
 
 
 
-    </TableLayout>
+
+
 
 
     <!--delete button-->
     <TextView
-        android:layout_marginTop="20dp"
-    android:layout_width="wrap_content"
+        android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Thanks to Sweet Dialog Library"/>
+    android:text="Thanks to Sweet Dialog Library"
+        tools:layout_conversion_absoluteX="109dp"
+        tools:layout_conversion_absoluteY="320dp"
+        tools:layout_conversion_absoluteWidth="192dp"
+        tools:layout_conversion_absoluteHeight="16dp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Thanks to AndroidViewAnimations"/>
+        android:text="Thanks to AndroidViewAnimations"
+        tools:layout_conversion_absoluteX="97dp"
+        tools:layout_conversion_absoluteY="336dp"
+        tools:layout_conversion_absoluteWidth="215dp"
+        tools:layout_conversion_absoluteHeight="16dp" />
 
     <Button
-        android:layout_marginTop="200dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Reset All Atempts"
         android:onClick="resetButtonPressed"
-        />
+        tools:layout_conversion_absoluteX="124dp"
+        tools:layout_conversion_absoluteY="553dp"
+        tools:layout_conversion_absoluteWidth="162dp"
+        tools:layout_conversion_absoluteHeight="48dp" />
 
 </LinearLayout>

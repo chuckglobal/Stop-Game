@@ -299,12 +299,18 @@ public class DoubleCounterActivity extends Activity {
 
     private void noAttempt() {
 
-        T1.cancel();
-        T1 = null;
-        T1stop = true;
-        T2.cancel();
-        T2 = null;
-        T2stop = true;
+        if ((T1 != null)){
+            T1.cancel();
+            T1 = null;
+            T1stop = true;
+        }
+
+        if (T2 != null){
+            T2.cancel();
+            T2 = null;
+            T2stop = true;
+        }
+
 
 //            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
 //            alertDialog.setTitle("Loser");

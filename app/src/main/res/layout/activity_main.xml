@@ -1,68 +1,77 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
     android:orientation="vertical"
     android:gravity="center"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     android:id="@+id/activity_main_view"
 
     tools:context=".MainActivity"
     android:background="@drawable/background_gradient">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="right">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="invisible"
-            android:onClick="cheatButtonClicked"/>
-        <Button
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="@drawable/ic_action_action_home"
-            android:onClick="returnToHomeScreenButtonClicked"
-            style="@style/Base.Widget.AppCompat.Button.Borderless"
+    <Button
+        android:background="@drawable/ic_action_action_home"
+        android:onClick="returnToHomeScreenButtonClicked"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
 
-            />
+        android:id="@+id/button3"
+        android:layout_marginTop="16dp"
+        ads:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="16dp"
+        ads:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
 
-    </LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="stop at 100"
         android:textSize="20sp"
-        android:id="@+id/headerDisplay"/>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        >
+        android:id="@+id/headerDisplay"
+        tools:layout_constraintRight_creator="1"
+        ads:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        ads:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="16dp"
+        ads:layout_constraintTop_toTopOf="parent"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"
+        ads:layout_constraintVertical_bias="0.19" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
         android:textSize="90sp"
-        android:layout_marginTop="50dp"
         android:id="@+id/counterView"
         android:textColor="#ff000000"
-        android:onClick="debugClicked"/>
+        android:onClick="debugClicked"
+        tools:layout_conversion_absoluteX="180dp"
+        tools:layout_conversion_absoluteY="156dp"
+        tools:layout_conversion_absoluteWidth="50dp"
+        tools:layout_conversion_absoluteHeight="105dp"
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginTop="8dp"
+        ads:layout_constraintTop_toBottomOf="@+id/headerDisplay"
+        android:textAlignment="center"
+        android:layout_marginStart="16dp"
+        ads:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        ads:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp" />
 
-    </LinearLayout>
 
     //stop button
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="stop"
-        android:layout_marginTop="60dp"
 
         android:paddingLeft="100dp"
         android:paddingRight="100dp"
@@ -73,24 +82,47 @@
         android:id="@+id/StopButton"
 
         android:background="@drawable/selector_stop_button"
-        android:textColor="#ff000000" />
+        android:textColor="#ff000000"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        ads:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="32dp"
+        ads:layout_constraintTop_toBottomOf="@+id/counterView"
+        tools:layout_constraintLeft_creator="1"
+        ads:layout_constraintLeft_toLeftOf="parent" />
 
     //start Button
+
     <Button
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Start"
         android:id="@+id/startButton"
         android:onClick="startPressed"
-        android:background="@drawable/button_round_green"/>
+        android:background="@drawable/button_round_green"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        ads:layout_constraintRight_toRightOf="@+id/StopButton"
+        android:layout_marginTop="4dp"
+        ads:layout_constraintTop_toBottomOf="@+id/StopButton"
+        tools:layout_constraintLeft_creator="1"
+        ads:layout_constraintLeft_toLeftOf="@+id/StopButton" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="x1"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:id="@+id/speedDisplay"/>
+        android:id="@+id/speedDisplay"
+        android:layout_marginEnd="16dp"
+        ads:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        ads:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        ads:layout_constraintTop_toBottomOf="@+id/startButton" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -98,25 +130,48 @@
         android:text="Attempts:"
         android:textSize="0sp"
         android:textStyle="bold"
-        android:textColor="#ff000000" />
+        android:textColor="#ff000000"
+        android:id="@+id/textView"
+        tools:layout_constraintBottom_creator="1"
+        android:layout_marginStart="16dp"
+        ads:layout_constraintBottom_toBottomOf="@+id/speedDisplay"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="6dp"
+        ads:layout_constraintLeft_toRightOf="@+id/speedDisplay"
+        android:layout_marginLeft="16dp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
         android:textSize="40sp"
         android:id="@+id/attemptDisplay"
-        android:textColor="#558B2F" />
+        android:textColor="#558B2F"
+        ads:layout_constraintBottom_toTopOf="@+id/adView"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="16dp"
+        ads:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        ads:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        ads:layout_constraintTop_toBottomOf="@+id/speedDisplay"
+        ads:layout_constraintVertical_bias="0.47000003" />
 
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="50dp"
         ads:adSize="BANNER"
-        ads:adUnitId="@string/bannerActivityMainId">
-    </com.google.android.gms.ads.AdView>
+        ads:adUnitId="@string/bannerActivityMainId"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="22dp"
+        ads:layout_constraintLeft_toLeftOf="parent"></com.google.android.gms.ads.AdView>
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
