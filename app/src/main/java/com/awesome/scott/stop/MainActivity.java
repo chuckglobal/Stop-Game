@@ -369,9 +369,6 @@ public class MainActivity extends Activity {
 
 
     public void returnToHomeScreenButtonClicked(View view) {
-
-
-
         Intent openHomeScreen = new Intent(MainActivity.this, StartMenu.class);
         startActivity(openHomeScreen);
     }

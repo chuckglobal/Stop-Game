@@ -54,7 +54,6 @@
         android:id="@+id/StopButton"
 
         android:background="@drawable/selector_stop_button"
-        android:textColor="#ff000000"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
         app:layout_constraintBottom_toBottomOf="parent"

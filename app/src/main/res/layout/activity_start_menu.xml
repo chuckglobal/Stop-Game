@@ -84,14 +84,17 @@
         android:orientation="horizontal"
         android:layout_width="0dp"
         android:gravity="center"
-        android:background="#EEEEEE"
+        android:background="@drawable/shape_round_square_blue"
         ads:layout_constraintRight_toRightOf="parent"
         ads:layout_constraintLeft_toLeftOf="parent"
         android:layout_height="150dp"
         ads:layout_constraintHorizontal_bias="0.0"
         ads:layout_constraintBottom_toBottomOf="parent"
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintLeft_creator="1">
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp">
 
         <TextView
             android:layout_width="wrap_content"

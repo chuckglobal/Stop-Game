@@ -17,7 +17,7 @@
         android:text="Select a Level"
         android:id="@+id/title"
         android:textSize="30sp"
-        android:textColor="#E53935"
+        android:textColor="#EF5350"
         android:typeface="monospace"
         android:textStyle="bold"
         android:textAlignment="center"
@@ -26,7 +26,9 @@
         ads:layout_constraintBottom_toTopOf="@+id/singleStopx1"
         ads:layout_constraintRight_toRightOf="parent"
         tools:layout_constraintLeft_creator="1"
-        ads:layout_constraintLeft_toLeftOf="parent" />
+        ads:layout_constraintLeft_toLeftOf="parent"
+        ads:layout_constraintHorizontal_bias="0.503"
+        android:layout_marginBottom="32dp" />
 
 
     <Button
